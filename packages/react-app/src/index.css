@@ -14,3 +14,8 @@ code {
 .align-right {
   text-align: right;
 }
+table td,
+table th {
+  padding: 2px 5px;
+  font-variant-numeric: tabular-nums;
+}

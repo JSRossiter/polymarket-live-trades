@@ -1,10 +1,11 @@
 import React from 'react';
+import { formatDateTime } from '../../utilities/formatDateTime';
 
 export default function TradeRow({ trade, markets }) {
   const market = markets[trade.market];
   return (
     <tr>
-      <td>{trade.timestamp.toString()}</td>
+      <td>{formatDateTime(trade.timestamp)}</td>
       <td>{market.question}</td>
       <td>{trade.account}</td>
       <td>{trade.type}</td>

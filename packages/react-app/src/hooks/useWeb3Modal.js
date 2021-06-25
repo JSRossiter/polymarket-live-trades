@@ -1,3 +1,4 @@
+import { Web3Provider } from '@ethersproject/providers';
 import WalletConnectProvider from '@walletconnect/web3-provider';
 import { useCallback, useEffect, useState } from 'react';
 import Web3Modal from 'web3modal';
@@ -35,7 +36,8 @@ function useWeb3Modal(config = {}) {
   // Open wallet selection modal.
   const loadWeb3Modal = useCallback(async () => {
     const newProvider = await web3Modal.connect();
-    setProvider(newProvider);
+    const provider = new Web3Provider(newProvider);
+    setProvider(provider);
   }, [web3Modal]);
 
   const logoutOfWeb3Modal = useCallback(
